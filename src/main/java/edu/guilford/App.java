@@ -8,6 +8,7 @@ import java.util.Scanner;
  */
 public class App 
 {
+    public static Scanner input = new Scanner(System.in);
     public static void main( String[] args )
     {   
         //Intantiates two users
@@ -15,12 +16,16 @@ public class App
         //User user2 = new User("Jane", "Doe", "doej@guilford.edu", "doej", 19960229, "red", "Spot", 1928, "Ice Cream");
 
         //creates two users
+        System.out.println("Enter information for User 1: ");
         User user1 = createUser();
+        System.out.println("\nEnter information for User 2: ");
         User user2 = createUser();
 
         //generates passwords for both users
         user1.generatePassword();
+        System.out.println("\nUser 1's password is: " + user1.getPassword());
         user2.generatePassword();
+        System.out.println("User 2's password is: " + user2.getPassword() + "\n");
 
         //prints passwords
         System.out.println("User 1's password is: " + user1.getPassword() + 
@@ -35,8 +40,6 @@ public class App
 
     //creates a method that prompts user for attributes and creates a user
     public static User createUser() {
-        //creates scanner
-        Scanner input = new Scanner(System.in);
 
         //prompts user for attributes
         System.out.println("Enter first name: ");
@@ -49,17 +52,17 @@ public class App
         String username = input.nextLine();
         System.out.println("Enter date of birth (YYYYMMDD): ");
         int dateOfBirth = input.nextInt();
+        input.nextLine();
         System.out.println("Enter favorite color: ");
         String favoriteColor = input.nextLine();
         System.out.println("Enter pet name: ");
         String petName = input.nextLine();
         System.out.println("Enter favorite number: ");
         int favoriteNumber = input.nextInt();
+        input.nextLine();
         System.out.println("Enter favorite food: ");
         String favoriteFood = input.nextLine();
-
-        //closes scanner
-        input.close();
+        
 
         //creates user
         User user = new User(firstName, lastName, email, username, dateOfBirth, favoriteColor, petName, favoriteNumber, favoriteFood);
